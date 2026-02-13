@@ -1,8 +1,15 @@
+import { motion } from "framer-motion";
 import { cv } from "../data/cv";
 
 export default function Contact() {
   return (
-    <footer className="mx-auto max-w-3xl px-6 py-10">
+    <motion.footer
+      className="mx-auto max-w-3xl px-6 py-10"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.6 }}
+    >
       <hr className="border-navy-200" />
       <div className="mt-6 flex flex-col items-center gap-2 text-sm text-navy-600">
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-1">
@@ -33,6 +40,6 @@ export default function Contact() {
           &copy; {new Date().getFullYear()} {cv.name}
         </p>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Header from "./components/Header";
 import Education from "./components/Education";
 import ResearchInterests from "./components/ResearchInterests";
@@ -9,7 +10,12 @@ import Contact from "./components/Contact";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-navy-50 text-navy-800">
+    <motion.div
+      className="math-bg min-h-screen bg-navy-50 text-navy-800"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       <Header />
       <Education />
       <ResearchInterests />
@@ -18,6 +24,6 @@ export default function App() {
       <Projects />
       <Skills />
       <Contact />
-    </div>
+    </motion.div>
   );
 }

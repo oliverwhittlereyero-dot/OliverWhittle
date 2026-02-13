@@ -1,81 +1,72 @@
 export const cv = {
   name: "Oliver Whittle",
-  title: "Mathematics Student",
+  title: "Applied Mathematics Student",
   contact: {
     email: "oliver@example.com",
     github: "https://github.com/OliverWhittleReyero-dot",
     linkedin: "https://linkedin.com/in/oliverwhittle",
-    location: "London, UK",
+    location: "Eindhoven, Netherlands",
   },
   about:
-    "Undergraduate mathematics student with broad interests spanning pure and applied mathematics. Particularly drawn to algebraic structures, topology, and the interplay between continuous and discrete mathematics. Seeking opportunities in mathematical research and quantitative roles.",
+    "First-year Applied Mathematics student at TU Eindhoven with a strong foundation in analysis, algebra, and numerical methods. Achieved an average grade of 8.6 in the first year and graduated from the IB Diploma Programme with 44/45 points. Passionate about mathematical modelling, computational methods, and their real-world applications.",
 
   researchInterests: [
-    "Algebraic topology and homological algebra",
-    "Number theory and arithmetic geometry",
-    "Stochastic processes and mathematical modelling",
-    "Numerical methods for partial differential equations",
+    "Numerical methods and computational mathematics",
+    "Mathematical modelling and simulation",
+    "Data analysis and machine learning",
+    "Optimisation and operations research",
   ],
 
   coursework: {
-    "Pure Mathematics": [
-      "Abstract Algebra",
-      "Real Analysis",
-      "Complex Analysis",
-      "Topology",
-      "Number Theory",
-      "Measure Theory",
+    "Analysis & Calculus": [
+      "Analysis (Real)",
+      "Calculus",
+      "Differential Equations",
     ],
-    "Applied Mathematics": [
-      "Ordinary Differential Equations",
-      "Partial Differential Equations",
-      "Mathematical Modelling",
-      "Fluid Dynamics",
-      "Numerical Analysis",
+    "Algebra & Discrete": [
+      "Linear Algebra",
+      "Discrete Mathematics",
+      "Set Theory & Logic",
     ],
-    "Statistics & Probability": [
-      "Probability Theory",
-      "Statistical Inference",
-      "Stochastic Processes",
-      "Bayesian Statistics",
+    "Computational Methods": [
+      "Numerical Methods",
+      "Programming",
+      "Data Processing",
     ],
   },
 
   education: [
     {
-      degree: "BSc Mathematics",
-      institution: "University of London",
-      location: "London, UK",
-      startDate: "2022",
-      endDate: "2025 (expected)",
+      degree: "BSc Applied Mathematics",
+      institution: "Eindhoven University of Technology (TU/e)",
+      location: "Eindhoven, Netherlands",
+      startDate: "2025",
+      endDate: "2028 (expected)",
       details:
-        "First-class trajectory. Dissertation on applications of homological algebra to topological data analysis.",
+        "First-year student. Current average grade: 8.6/10.",
+    },
+    {
+      degree: "International Baccalaureate Diploma",
+      institution: "High School",
+      location: "",
+      startDate: "2023",
+      endDate: "2025",
+      details:
+        "Scored 44/45 points. Higher Level subjects: Mathematics Analysis & Approaches (AA HL), Biology HL, English HL.",
     },
   ],
 
   experience: [
     {
-      role: "Undergraduate Teaching Assistant",
-      company: "University of London, Department of Mathematics",
-      location: "London, UK",
-      startDate: "Sep 2024",
+      role: "Mathematics Tutor",
+      company: "Private Tutoring",
+      location: "Eindhoven, Netherlands",
+      startDate: "Sep 2025",
       endDate: "Present",
       bullets: [
-        "Lead weekly problem classes for first-year Linear Algebra and Calculus modules",
-        "Mark coursework and provide written feedback to approximately 40 students",
-        "Hold office hours to support students with problem sets and exam preparation",
-      ],
-    },
-    {
-      role: "Summer Research Intern",
-      company: "University of London, Applied Mathematics Group",
-      location: "London, UK",
-      startDate: "Jun 2024",
-      endDate: "Aug 2024",
-      bullets: [
-        "Implemented numerical solvers for systems of nonlinear PDEs in Python and MATLAB",
-        "Investigated convergence properties of finite element methods on irregular meshes",
-        "Presented findings at the departmental summer research symposium",
+        "Tutor high school students in IB Mathematics and university-level calculus",
+        "Develop tailored problem sets and study plans based on individual needs",
+        "Help students build mathematical intuition and problem-solving strategies",
       ],
     },
   ],
@@ -84,33 +75,33 @@ export const cv = {
     "Mathematical Software": [
       "MATLAB",
       "Mathematica",
-      "SageMath",
       "GeoGebra",
     ],
-    Programming: ["Python", "R", "LaTeX", "C++", "Julia"],
-    Libraries: ["NumPy", "SciPy", "SymPy", "matplotlib"],
-    Tools: ["Git", "Jupyter", "VS Code", "Linux"],
+    Programming: ["Python", "LaTeX", "TypeScript", "React"],
+    Libraries: ["NumPy", "SciPy", "matplotlib", "pandas"],
+    Tools: ["Git", "Jupyter", "VS Code"],
+    Languages: ["English", "Spanish"],
   },
 
   projects: [
     {
-      name: "Topological Data Analysis Toolkit",
+      name: "Personal CV Website",
       description:
-        "Python library implementing persistent homology algorithms for analysing point-cloud data sets. Applied to synthetic and real-world data from sensor networks.",
-      tech: ["Python", "NumPy", "SciPy", "matplotlib"],
-      link: "https://github.com/OliverWhittleReyero-dot/tda-toolkit",
+        "Designed and built a responsive personal website to showcase academic background and projects, using React, TypeScript, and Vite.",
+      tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+      link: "https://github.com/OliverWhittleReyero-dot/OliverWhittle",
     },
     {
-      name: "Numerical PDE Solver",
+      name: "Numerical Methods Implementations",
       description:
-        "Finite element and finite difference solvers for the heat equation, wave equation, and Laplace's equation on 2D domains with various boundary conditions.",
-      tech: ["Python", "MATLAB", "LaTeX"],
+        "Collection of numerical algorithms including root-finding methods, numerical integration, and ODE solvers implemented from scratch as part of coursework.",
+      tech: ["Python", "NumPy", "matplotlib"],
     },
     {
-      name: "Prime Distribution Visualiser",
+      name: "IB Mathematics Extended Essay",
       description:
-        "Interactive visualisation of the distribution of primes, Ulam spirals, and the Riemann zeta function along the critical strip.",
-      tech: ["Python", "matplotlib", "Streamlit"],
+        "Research essay exploring applications of differential equations to population dynamics and epidemiological modelling.",
+      tech: ["LaTeX", "Python", "MATLAB"],
     },
   ],
 };
