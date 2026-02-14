@@ -16,12 +16,12 @@ const photo = {
   show: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" as const } },
 };
 
-const skillTag = {
-  hidden: { opacity: 0, scale: 0.8 },
-  show: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: "easeOut" as const } },
-};
+interface Props {
+  theme: "light" | "dark";
+  toggleTheme: () => void;
+}
 
-export default function Sidebar() {
+export default function Sidebar({ theme, toggleTheme }: Props) {
   return (
     <motion.aside
       className="w-72 shrink-0 bg-sidebar p-8 text-sidebar-text max-md:hidden"
@@ -29,6 +29,33 @@ export default function Sidebar() {
       animate="show"
       variants={container}
     >
+      {/* Theme Toggle */}
+      <motion.div className="mb-4 flex justify-end" variants={item}>
+        <button
+          onClick={toggleTheme}
+          className="rounded-full p-2 text-sidebar-text transition-colors hover:bg-sidebar-light hover:text-accent-light"
+          aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+        >
+          {theme === "light" ? (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          ) : (
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          )}
+        </button>
+      </motion.div>
+
       {/* Photo */}
       <motion.div className="mb-6 flex justify-center" variants={photo}>
         <img
@@ -90,26 +117,37 @@ export default function Sidebar() {
         </ul>
       </motion.div>
 
-      {/* Skills */}
-      {Object.entries(cv.skills).map(([category, items]) => (
+      {/* Skills with Progress Bars */}
+      {Object.entries(cv.skills).map(([category, skills]) => (
         <motion.div key={category} className="mb-5" variants={item}>
           <h2 className="mb-2 border-b border-sidebar-light pb-1 text-xs font-bold tracking-widest uppercase text-sidebar-heading">
             {category}
           </h2>
           <motion.div
-            className="flex flex-wrap gap-1.5"
-            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.04 } } }}
+            className="space-y-2"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
           >
-            {items.map((skill) => (
-              <motion.span
-                key={skill}
-                className="rounded bg-sidebar-light px-2 py-0.5 text-xs text-sidebar-text transition-colors hover:bg-accent/30"
-                variants={skillTag}
-                whileHover={{ scale: 1.08 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            {skills.map((skill) => (
+              <motion.div
+                key={skill.name}
+                variants={{
+                  hidden: { opacity: 0, x: -10 },
+                  show: { opacity: 1, x: 0, transition: { duration: 0.35 } },
+                }}
               >
-                {skill}
-              </motion.span>
+                <div className="mb-0.5 flex justify-between text-xs">
+                  <span className="text-sidebar-text">{skill.name}</span>
+                  <span className="text-sidebar-text/60">{skill.level}%</span>
+                </div>
+                <div className="h-1.5 overflow-hidden rounded-full bg-sidebar-light">
+                  <motion.div
+                    className="h-full rounded-full bg-accent"
+                    initial={{ width: 0 }}
+                    animate={{ width: `${skill.level}%` }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                  />
+                </div>
+              </motion.div>
             ))}
           </motion.div>
         </motion.div>

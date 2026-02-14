@@ -42,8 +42,10 @@ export const cv = {
       location: "Eindhoven, Netherlands",
       startDate: "2025",
       endDate: "2028 (expected)",
-      details:
-        "First-year student. Current average grade: 8.6/10.",
+      details: "First-year student.",
+      stats: [
+        { value: 8.6, decimals: 1, suffix: "/10", label: "Average Grade" },
+      ],
     },
     {
       degree: "International Baccalaureate Diploma",
@@ -52,7 +54,8 @@ export const cv = {
       startDate: "2023",
       endDate: "2025",
       details:
-        "Scored 44/45 points. Higher Level subjects: Mathematics Analysis & Approaches (AA HL), Biology HL, English HL.",
+        "Higher Level subjects: Mathematics Analysis & Approaches (AA HL), Biology HL, English HL.",
+      stats: [{ value: 44, decimals: 0, suffix: "/45", label: "IB Score" }],
     },
   ],
 
@@ -73,14 +76,31 @@ export const cv = {
 
   skills: {
     "Mathematical Software": [
-      "MATLAB",
-      "Mathematica",
-      "GeoGebra",
+      { name: "MATLAB", level: 85 },
+      { name: "Mathematica", level: 70 },
+      { name: "GeoGebra", level: 75 },
     ],
-    Programming: ["Python", "LaTeX", "TypeScript", "React"],
-    Libraries: ["NumPy", "SciPy", "matplotlib", "pandas"],
-    Tools: ["Git", "Jupyter", "VS Code"],
-    Languages: ["English", "Spanish"],
+    Programming: [
+      { name: "Python", level: 90 },
+      { name: "LaTeX", level: 80 },
+      { name: "TypeScript", level: 70 },
+      { name: "React", level: 65 },
+    ],
+    Libraries: [
+      { name: "NumPy", level: 85 },
+      { name: "SciPy", level: 75 },
+      { name: "matplotlib", level: 80 },
+      { name: "pandas", level: 75 },
+    ],
+    Tools: [
+      { name: "Git", level: 80 },
+      { name: "Jupyter", level: 85 },
+      { name: "VS Code", level: 90 },
+    ],
+    Languages: [
+      { name: "English", level: 95 },
+      { name: "Spanish", level: 95 },
+    ],
   },
 
   projects: [

@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cv } from "../data/cv";
 
 const container = {
@@ -27,6 +28,8 @@ const tag = {
 };
 
 export default function Projects() {
+  const [expanded, setExpanded] = useState<number | null>(null);
+
   return (
     <motion.section
       className="mb-8"
@@ -46,26 +49,52 @@ export default function Projects() {
         {cv.projects.map((project, i) => (
           <motion.div
             key={i}
-            className="rounded-lg border border-main-border/50 bg-white/60 p-4 transition-shadow hover:shadow-md"
+            className="cursor-pointer rounded-lg border border-main-border/50 bg-card-bg p-4 transition-shadow hover:shadow-md"
             variants={card}
+            layout
+            onClick={() => setExpanded(expanded === i ? null : i)}
           >
-            <h3 className="font-heading text-base font-bold text-main-heading">
-              {project.link ? (
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-accent transition-colors"
+            <div className="flex items-start justify-between gap-2">
+              <h3 className="font-heading text-base font-bold text-main-heading">
+                {project.link ? (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-accent transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {project.name} &rarr;
+                  </a>
+                ) : (
+                  project.name
+                )}
+              </h3>
+              <motion.span
+                className="mt-1 shrink-0 text-xs text-main-muted"
+                animate={{ rotate: expanded === i ? 180 : 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </motion.span>
+            </div>
+            <AnimatePresence initial={false}>
+              {expanded === i && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden"
                 >
-                  {project.name} &rarr;
-                </a>
-              ) : (
-                project.name
+                  <p className="mt-2 text-sm leading-relaxed text-main-text">
+                    {project.description}
+                  </p>
+                </motion.div>
               )}
-            </h3>
-            <p className="mt-1 text-sm leading-relaxed text-main-text">
-              {project.description}
-            </p>
+            </AnimatePresence>
             <motion.div
               className="mt-2 flex flex-wrap gap-1.5"
               variants={{ hidden: {}, show: { transition: { staggerChildren: 0.05, delayChildren: 0.2 } } }}

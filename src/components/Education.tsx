@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { cv } from "../data/cv";
+import AnimatedCounter from "./AnimatedCounter";
 
 const container = {
   hidden: {},
@@ -54,6 +55,26 @@ export default function Education() {
             </p>
             {edu.details && (
               <p className="mt-1 text-sm text-main-text">{edu.details}</p>
+            )}
+            {edu.stats && edu.stats.length > 0 && (
+              <div className="mt-2 flex flex-wrap gap-3">
+                {edu.stats.map((stat) => (
+                  <span
+                    key={stat.label}
+                    className="inline-flex items-baseline gap-1 rounded-md bg-tag-bg px-3 py-1 text-sm font-medium text-tag-text"
+                  >
+                    <span className="text-lg font-bold">
+                      <AnimatedCounter
+                        to={stat.value}
+                        decimals={stat.decimals}
+                        duration={1.2}
+                      />
+                    </span>
+                    <span className="text-xs opacity-70">{stat.suffix}</span>
+                    <span className="ml-1 text-xs opacity-50">{stat.label}</span>
+                  </span>
+                ))}
+              </div>
             )}
           </motion.div>
         ))}
