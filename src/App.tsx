@@ -9,7 +9,7 @@ import ResearchInterests from "./components/ResearchInterests";
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#f0f2f5] py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#d2c6a5] py-8 px-4 sm:px-6 lg:px-8">
       <motion.div
         className="resume-container mx-auto max-w-5xl overflow-hidden rounded-lg shadow-xl"
         initial={{ opacity: 0, y: 30 }}
