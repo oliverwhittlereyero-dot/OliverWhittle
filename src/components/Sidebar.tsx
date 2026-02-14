@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { cv } from "../data/cv";
 
@@ -71,6 +72,12 @@ export default function Sidebar({ theme, toggleTheme }: Props) {
           {cv.name}
         </h1>
         <p className="mt-1 text-sm text-accent-light">{cv.title}</p>
+        <Link
+          to="/photo"
+          className="mt-2 inline-block text-xs text-sidebar-text transition-colors hover:text-accent-light"
+        >
+          View Photo &rarr;
+        </Link>
       </motion.div>
 
       {/* Contact */}

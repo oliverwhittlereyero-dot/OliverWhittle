@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTheme } from "./hooks/useTheme";
 import Sidebar from "./components/Sidebar";
@@ -9,10 +10,9 @@ import Coursework from "./components/Coursework";
 import ResearchInterests from "./components/ResearchInterests";
 import SectionNav from "./components/SectionNav";
 import BackToTop from "./components/BackToTop";
+import PhotoPage from "./pages/PhotoPage";
 
-export default function App() {
-  const { theme, toggle } = useTheme();
-
+function CVPage({ theme, toggle }: { theme: "light" | "dark"; toggle: () => void }) {
   return (
     <div className="min-h-screen bg-outer-bg py-8 px-4 transition-colors duration-300 sm:px-6 lg:px-8">
       <motion.div
@@ -52,5 +52,16 @@ export default function App() {
       <SectionNav />
       <BackToTop />
     </div>
+  );
+}
+
+export default function App() {
+  const { theme, toggle } = useTheme();
+
+  return (
+    <Routes>
+      <Route path="/" element={<CVPage theme={theme} toggle={toggle} />} />
+      <Route path="/photo" element={<PhotoPage />} />
+    </Routes>
   );
 }

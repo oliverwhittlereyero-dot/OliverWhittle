@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { cv } from "../data/cv";
 
@@ -36,6 +37,12 @@ export default function Profile({ theme, toggleTheme }: Props) {
             </h1>
             <p className="text-sm text-accent">{cv.title}</p>
             <p className="mt-1 text-xs text-main-muted">{cv.contact.location}</p>
+            <Link
+              to="/photo"
+              className="mt-1 inline-block text-xs text-main-muted transition-colors hover:text-accent"
+            >
+              View Photo &rarr;
+            </Link>
           </div>
           {/* Mobile Theme Toggle */}
           <button
