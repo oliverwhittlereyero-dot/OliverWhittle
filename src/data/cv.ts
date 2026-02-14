@@ -85,23 +85,29 @@ export const cv = {
 
   projects: [
     {
+      name: "Lotka-Volterra ODE Parameter Optimisation",
+      description:
+        "Optimised parameters of the Lotka-Volterra predator-prey ODE system to fit historical Canadian lynx-hare pelt trading data. Implemented and compared numerical methods including Euler, Runge-Kutta, and least-squares optimisation to achieve best-fit solutions.",
+      tech: ["Python", "NumPy", "SciPy", "matplotlib"],
+    },
+    {
+      name: "Elo Rating Model for Dutch Football",
+      description:
+        "Built a simulation of the Elo rating system applied to the Dutch Eredivisie, modelling match outcomes and ranking dynamics over multiple seasons. Extended the base model with home-advantage corrections and predictive analysis.",
+      tech: ["Python", "pandas", "matplotlib"],
+    },
+    {
+      name: "Graph Theory Modelling",
+      description:
+        "Applied graph theory to two distinct problems: optimising the path of an Automated Guided Vehicle (AGV) through a warehouse network, and solving a murder mystery puzzle using graph colouring and traversal algorithms.",
+      tech: ["Python", "NetworkX", "matplotlib"],
+    },
+    {
       name: "Personal CV Website",
       description:
-        "Designed and built a responsive personal website to showcase academic background and projects, using React, TypeScript, and Vite.",
+        "Designed and built this responsive personal website to showcase academic background and projects, using React, TypeScript, and Vite.",
       tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
       link: "https://github.com/OliverWhittleReyero-dot/OliverWhittle",
-    },
-    {
-      name: "Numerical Methods Implementations",
-      description:
-        "Collection of numerical algorithms including root-finding methods, numerical integration, and ODE solvers implemented from scratch as part of coursework.",
-      tech: ["Python", "NumPy", "matplotlib"],
-    },
-    {
-      name: "IB Mathematics Extended Essay",
-      description:
-        "Research essay exploring applications of differential equations to population dynamics and epidemiological modelling.",
-      tech: ["LaTeX", "Python", "MATLAB"],
     },
   ],
 };

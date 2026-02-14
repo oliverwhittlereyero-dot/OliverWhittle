@@ -1,56 +1,49 @@
 import { motion } from "framer-motion";
 import { cv } from "../data/cv";
-import MathDecoration from "./MathDecoration";
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.12 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 export default function Education() {
   return (
     <motion.section
-      className="relative mx-auto max-w-3xl overflow-hidden px-6 py-10"
+      className="mb-8"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
       variants={container}
     >
-      <MathDecoration
-        formula="\\sum_{i=1}^{n} i = \\frac{n(n+1)}{2}"
-        className="right-0 top-2"
-        fontSize="3rem"
-      />
       <motion.h2
-        className="relative z-10 font-heading text-xl font-bold text-navy-800"
+        className="font-heading text-lg font-bold uppercase tracking-wide text-main-heading"
         variants={item}
       >
         Education
       </motion.h2>
-      <hr className="mt-2 border-navy-200" />
-      <div className="mt-6 space-y-6">
+      <div className="mt-1 mb-4 h-0.5 w-10 bg-accent" />
+      <div className="space-y-5">
         {cv.education.map((edu, i) => (
           <motion.div key={i} variants={item}>
             <div className="flex flex-col justify-between sm:flex-row sm:items-baseline">
-              <div>
-                <h3 className="font-heading text-lg font-bold text-navy-800">
-                  {edu.degree}
-                </h3>
-                <p className="text-navy-600">
-                  {edu.institution} &middot; {edu.location}
-                </p>
-              </div>
-              <p className="mt-1 text-sm text-navy-500 sm:mt-0">
+              <h3 className="font-heading text-base font-bold text-main-heading">
+                {edu.degree}
+              </h3>
+              <span className="text-sm text-main-muted">
                 {edu.startDate} &ndash; {edu.endDate}
-              </p>
+              </span>
             </div>
+            <p className="text-sm text-accent">
+              {edu.institution}
+              {edu.location && <> &middot; {edu.location}</>}
+            </p>
             {edu.details && (
-              <p className="mt-2 text-navy-700">{edu.details}</p>
+              <p className="mt-1 text-sm text-main-text">{edu.details}</p>
             )}
           </motion.div>
         ))}

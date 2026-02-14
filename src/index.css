@@ -4,16 +4,20 @@
   --font-heading: "Libre Baskerville", serif;
   --font-body: "Source Sans 3", sans-serif;
 
-  --color-navy-50: #f0f4fa;
-  --color-navy-100: #dbe3f2;
-  --color-navy-200: #b8c8e5;
-  --color-navy-300: #8aa4d2;
-  --color-navy-400: #5c7fbe;
-  --color-navy-500: #3b5ea5;
-  --color-navy-600: #2d4a85;
-  --color-navy-700: #1e3464;
-  --color-navy-800: #142347;
-  --color-navy-900: #0b1529;
+  --color-sidebar: #1b2a3d;
+  --color-sidebar-light: #243548;
+  --color-sidebar-text: #c8d6e5;
+  --color-sidebar-heading: #ffffff;
+  --color-accent: #3498db;
+  --color-accent-light: #5dade2;
+
+  --color-main-bg: #ffffff;
+  --color-main-text: #2c3e50;
+  --color-main-heading: #1a252f;
+  --color-main-muted: #7f8c8d;
+  --color-main-border: #e0e0e0;
+  --color-tag-bg: #eaf2f8;
+  --color-tag-text: #2980b9;
 }
 
 html {
@@ -26,27 +30,16 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #f0f2f5;
 }
 
-/* Math decoration base styles */
-.math-decoration {
-  position: absolute;
-  opacity: 0.06;
-  color: var(--color-navy-400);
-  z-index: 0;
-  line-height: 1;
-}
-
-@media (max-width: 640px) {
-  .math-decoration {
-    display: none;
+/* Print styles */
+@media print {
+  body {
+    background: white;
   }
-}
-
-/* Subtle math grid background */
-.math-bg {
-  background-image:
-    radial-gradient(circle at 20% 50%, rgba(59, 94, 165, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(59, 94, 165, 0.03) 0%, transparent 50%),
-    radial-gradient(circle at 50% 80%, rgba(59, 94, 165, 0.02) 0%, transparent 50%);
+  .resume-container {
+    box-shadow: none !important;
+    max-width: 100% !important;
+  }
 }

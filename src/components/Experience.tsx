@@ -7,47 +7,43 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 export default function Experience() {
   return (
     <motion.section
-      className="mx-auto max-w-3xl px-6 py-10"
+      className="mb-8"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
       variants={container}
     >
       <motion.h2
-        className="font-heading text-xl font-bold text-navy-800"
+        className="font-heading text-lg font-bold uppercase tracking-wide text-main-heading"
         variants={item}
       >
         Experience
       </motion.h2>
-      <hr className="mt-2 border-navy-200" />
-      <div className="mt-6 space-y-8">
+      <div className="mt-1 mb-4 h-0.5 w-10 bg-accent" />
+      <div className="space-y-5">
         {cv.experience.map((job, i) => (
           <motion.div key={i} variants={item}>
             <div className="flex flex-col justify-between sm:flex-row sm:items-baseline">
-              <div>
-                <h3 className="font-heading text-lg font-bold text-navy-800">
-                  {job.role}
-                </h3>
-                <p className="text-navy-600">
-                  {job.company} &middot; {job.location}
-                </p>
-              </div>
-              <p className="mt-1 text-sm text-navy-500 sm:mt-0">
+              <h3 className="font-heading text-base font-bold text-main-heading">
+                {job.role}
+              </h3>
+              <span className="text-sm text-main-muted">
                 {job.startDate} &ndash; {job.endDate}
-              </p>
+              </span>
             </div>
-            <ul className="mt-3 list-disc space-y-1 pl-5 text-navy-700">
+            <p className="text-sm text-accent">
+              {job.company} &middot; {job.location}
+            </p>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-main-text">
               {job.bullets.map((bullet, j) => (
-                <motion.li key={j} variants={item}>
-                  {bullet}
-                </motion.li>
+                <li key={j}>{bullet}</li>
               ))}
             </ul>
           </motion.div>

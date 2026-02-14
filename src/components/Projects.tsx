@@ -1,68 +1,60 @@
 import { motion } from "framer-motion";
 import { cv } from "../data/cv";
-import MathDecoration from "./MathDecoration";
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
+  show: { transition: { staggerChildren: 0.1 } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 export default function Projects() {
   return (
     <motion.section
-      className="relative mx-auto max-w-3xl overflow-hidden px-6 py-10"
+      className="mb-8"
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.2 }}
       variants={container}
     >
-      <MathDecoration
-        formula="\\nabla f"
-        className="right-0 top-2"
-        fontSize="3.5rem"
-      />
       <motion.h2
-        className="relative z-10 font-heading text-xl font-bold text-navy-800"
+        className="font-heading text-lg font-bold uppercase tracking-wide text-main-heading"
         variants={item}
       >
         Projects
       </motion.h2>
-      <hr className="mt-2 border-navy-200" />
-      <div className="mt-6 space-y-6">
+      <div className="mt-1 mb-4 h-0.5 w-10 bg-accent" />
+      <div className="space-y-5">
         {cv.projects.map((project, i) => (
           <motion.div key={i} variants={item}>
-            <h3 className="font-heading text-lg font-bold text-navy-800">
+            <h3 className="font-heading text-base font-bold text-main-heading">
               {project.link ? (
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline decoration-navy-300 underline-offset-2 hover:text-navy-600"
+                  className="hover:text-accent transition-colors"
                 >
-                  {project.name}
+                  {project.name} &rarr;
                 </a>
               ) : (
                 project.name
               )}
             </h3>
-            <p className="mt-1 leading-relaxed text-navy-700">
+            <p className="mt-1 text-sm leading-relaxed text-main-text">
               {project.description}
             </p>
-            <div className="mt-2 flex flex-wrap gap-2">
+            <div className="mt-2 flex flex-wrap gap-1.5">
               {project.tech.map((t) => (
-                <motion.span
+                <span
                   key={t}
-                  className="rounded-full border border-navy-300 px-3 py-0.5 text-xs text-navy-600"
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  className="rounded bg-tag-bg px-2.5 py-0.5 text-xs font-medium text-tag-text"
                 >
                   {t}
-                </motion.span>
+                </span>
               ))}
             </div>
           </motion.div>
