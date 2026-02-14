@@ -3,12 +3,22 @@ import { cv } from "../data/cv";
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const heading = {
+  hidden: { opacity: 0, x: -20 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+};
+
+const bar = {
+  hidden: { width: 0 },
+  show: { width: 40, transition: { duration: 0.4, ease: "easeOut" as const } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  hidden: { opacity: 0, x: -16 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
 };
 
 export default function Coursework() {
@@ -22,11 +32,11 @@ export default function Coursework() {
     >
       <motion.h2
         className="font-heading text-lg font-bold uppercase tracking-wide text-main-heading"
-        variants={item}
+        variants={heading}
       >
         Relevant Coursework
       </motion.h2>
-      <div className="mt-1 mb-4 h-0.5 w-10 bg-accent" />
+      <motion.div className="mt-1 mb-4 h-0.5 bg-accent" variants={bar} />
       <div className="space-y-3">
         {Object.entries(cv.coursework).map(([category, courses]) => (
           <motion.div key={category} variants={item}>

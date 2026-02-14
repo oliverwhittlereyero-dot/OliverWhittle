@@ -3,12 +3,27 @@ import { cv } from "../data/cv";
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } },
+};
+
+const heading = {
+  hidden: { opacity: 0, x: -20 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+};
+
+const bar = {
+  hidden: { width: 0 },
+  show: { width: 40, transition: { duration: 0.4, ease: "easeOut" as const } },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+};
+
+const bullet = {
+  hidden: { opacity: 0, x: -10 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.3, ease: "easeOut" as const } },
 };
 
 export default function Experience() {
@@ -17,16 +32,16 @@ export default function Experience() {
       className="mb-8"
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.15 }}
       variants={container}
     >
       <motion.h2
         className="font-heading text-lg font-bold uppercase tracking-wide text-main-heading"
-        variants={item}
+        variants={heading}
       >
         Experience
       </motion.h2>
-      <div className="mt-1 mb-4 h-0.5 w-10 bg-accent" />
+      <motion.div className="mt-1 mb-4 h-0.5 bg-accent" variants={bar} />
       <div className="space-y-5">
         {cv.experience.map((job, i) => (
           <motion.div key={i} variants={item}>
@@ -42,8 +57,10 @@ export default function Experience() {
               {job.company} &middot; {job.location}
             </p>
             <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-main-text">
-              {job.bullets.map((bullet, j) => (
-                <li key={j}>{bullet}</li>
+              {job.bullets.map((b, j) => (
+                <motion.li key={j} variants={bullet}>
+                  {b}
+                </motion.li>
               ))}
             </ul>
           </motion.div>

@@ -11,7 +11,7 @@
   --color-accent: #3498db;
   --color-accent-light: #5dade2;
 
-  --color-main-bg: #ffffff;
+  --color-main-bg: #faf9f7;
   --color-main-text: #2c3e50;
   --color-main-heading: #1a252f;
   --color-main-muted: #7f8c8d;
@@ -30,7 +30,8 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f0f2f5;
+  background: linear-gradient(135deg, #e8e6e1 0%, #d5d0c8 50%, #e2ddd6 100%);
+  background-attachment: fixed;
 }
 
 /* Print styles */

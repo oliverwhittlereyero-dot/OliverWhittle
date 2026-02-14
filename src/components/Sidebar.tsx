@@ -3,12 +3,22 @@ import { cv } from "../data/cv";
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
+  show: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
 };
 
 const item = {
-  hidden: { opacity: 0, x: -12 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.4 } },
+  hidden: { opacity: 0, x: -16 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.45, ease: "easeOut" as const } },
+};
+
+const photo = {
+  hidden: { opacity: 0, scale: 0.85 },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" as const } },
+};
+
+const skillTag = {
+  hidden: { opacity: 0, scale: 0.8 },
+  show: { opacity: 1, scale: 1, transition: { duration: 0.3, ease: "easeOut" as const } },
 };
 
 export default function Sidebar() {
@@ -20,7 +30,7 @@ export default function Sidebar() {
       variants={container}
     >
       {/* Photo */}
-      <motion.div className="mb-6 flex justify-center" variants={item}>
+      <motion.div className="mb-6 flex justify-center" variants={photo}>
         <img
           src="Oliver_photo.jpeg"
           alt={cv.name}
@@ -86,16 +96,22 @@ export default function Sidebar() {
           <h2 className="mb-2 border-b border-sidebar-light pb-1 text-xs font-bold tracking-widest uppercase text-sidebar-heading">
             {category}
           </h2>
-          <div className="flex flex-wrap gap-1.5">
+          <motion.div
+            className="flex flex-wrap gap-1.5"
+            variants={{ hidden: {}, show: { transition: { staggerChildren: 0.04 } } }}
+          >
             {items.map((skill) => (
-              <span
+              <motion.span
                 key={skill}
-                className="rounded bg-sidebar-light px-2 py-0.5 text-xs text-sidebar-text"
+                className="rounded bg-sidebar-light px-2 py-0.5 text-xs text-sidebar-text transition-colors hover:bg-accent/30"
+                variants={skillTag}
+                whileHover={{ scale: 1.08 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 {skill}
-              </span>
+              </motion.span>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       ))}
     </motion.aside>
