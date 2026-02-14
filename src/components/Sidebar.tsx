@@ -124,24 +124,24 @@ export default function Sidebar({ theme, toggleTheme }: Props) {
             {category}
           </h2>
           <motion.div
-            className="space-y-2"
+            className="space-y-2.5"
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
           >
             {skills.map((skill) => (
               <motion.div
                 key={skill.name}
+                className="group relative"
                 variants={{
                   hidden: { opacity: 0, x: -10 },
                   show: { opacity: 1, x: 0, transition: { duration: 0.35 } },
                 }}
               >
-                <div className="mb-0.5 flex justify-between text-xs">
-                  <span className="text-sidebar-text">{skill.name}</span>
-                  <span className="text-sidebar-text/60">{skill.level}%</span>
+                <div className="mb-1 text-xs text-sidebar-text">
+                  {skill.name}
                 </div>
-                <div className="h-1.5 overflow-hidden rounded-full bg-sidebar-light">
+                <div className="h-1.5 overflow-hidden rounded-full bg-sidebar-light transition-[height] duration-200 group-hover:h-2">
                   <motion.div
-                    className="h-full rounded-full bg-accent"
+                    className="h-full rounded-full bg-gradient-to-r from-accent to-accent-light transition-shadow duration-200 group-hover:shadow-[0_0_8px_var(--color-accent)]"
                     initial={{ width: 0 }}
                     animate={{ width: `${skill.level}%` }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
