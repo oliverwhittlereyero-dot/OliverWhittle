@@ -8,7 +8,7 @@ export const cv = {
     location: "Eindhoven, Netherlands",
   },
   about:
-    "First-year Applied Mathematics student at TU Eindhoven with a strong foundation in analysis, algebra, and numerical methods. Achieved an average grade of 8.6 in the first year and graduated from the IB Diploma Programme with 44/45 points. Passionate about mathematical modelling, computational methods, and their real-world applications.",
+    "First-year Applied Mathematics student at TU Eindhoven with a strong foundation in analysis, algebra, and numerical methods. Achieved an average grade of 8.5 in the first year, including a 9 in Calculus, Linear Algebra and Discrete Mathematics. Graduated from the IB Diploma Programme with 44/45 points. Passionate about mathematical modelling, computational methods, and their real-world applications.",
 
   researchInterests: [
     "Numerical methods and computational mathematics",
@@ -42,9 +42,9 @@ export const cv = {
       location: "Eindhoven, Netherlands",
       startDate: "2025",
       endDate: "2028 (expected)",
-      details: "First-year student.",
+      details: "First-year student. Scored a 9 in Calculus, Linear Algebra and Discrete Mathematics.",
       stats: [
-        { value: 8.6, decimals: 1, suffix: "/10", label: "Average Grade" },
+        { value: 8.5, decimals: 1, suffix: "/10", label: "Average Grade" },
       ],
     },
     {
